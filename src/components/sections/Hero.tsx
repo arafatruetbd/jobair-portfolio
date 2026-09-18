@@ -17,8 +17,8 @@ export function Hero() {
               <div className="relative flex h-40 w-40 items-center justify-center rounded-2xl border border-accent/20 bg-accent-soft text-accent shadow-sm sm:h-48 sm:w-48 overflow-hidden">
                 {!imgError ? (
                   <img
-                    src="/images/profile/profile.png"
-                    alt="Jobair - Acumatica ERP & Ticket Operations Specialist"
+                    src={siteConfig.profileImage}
+                    alt={`${siteConfig.name} - ${siteConfig.role}`}
                     width={192}
                     height={192}
                     fetchPriority="high"
@@ -28,10 +28,10 @@ export function Hero() {
                 ) : (
                   <div
                     role="img"
-                    aria-label="Portrait avatar placeholder for Jobair"
+                    aria-label={`Portrait avatar placeholder for ${siteConfig.name}`}
                     className="flex h-full w-full items-center justify-center"
                   >
-                    <span className="text-4xl font-bold tracking-tight text-accent">J</span>
+                    <span className="text-4xl font-bold tracking-tight text-accent">JH</span>
                   </div>
                 )}
               </div>

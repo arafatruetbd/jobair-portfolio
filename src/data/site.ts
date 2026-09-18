@@ -1,9 +1,10 @@
 export const siteConfig = {
-  name: 'Jobair',
+  name: 'Jobair Hossain',
   role: 'Acumatica ERP & Ticket Operations Specialist',
   supportingRole: 'E-commerce Orders | AXS | Ticketmaster',
   status: 'Available for new opportunities',
   tagline: 'Streamlined systems. Stronger operations.',
+  profileImage: `${import.meta.env.BASE_URL}images/profile/profile.png`,
   heroDescription:
     'I help businesses streamline e-commerce order processing and ticket operations. I have 4 years of hands-on experience in Acumatica ERP, multi-channel e-commerce order processing, and ticket operations across AXS, Ticketmaster, and related platforms.',
   navLinks: [
