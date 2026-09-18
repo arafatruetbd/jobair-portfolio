@@ -34,6 +34,7 @@ export interface PortfolioItem {
   summary: string
   platforms: string[]
   responsibilities: string[]
+  featured?: boolean
 }
 
 export interface ExperienceStat {
