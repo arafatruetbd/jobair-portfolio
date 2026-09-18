@@ -23,7 +23,13 @@ export function Button({
 
   if (asAnchor && href) {
     return (
-      <a href={href} target={target} rel={rel} className={combinedClasses}>
+      <a
+        href={href}
+        target={target}
+        rel={rel}
+        className={combinedClasses}
+        {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+      >
         {children}
       </a>
     )

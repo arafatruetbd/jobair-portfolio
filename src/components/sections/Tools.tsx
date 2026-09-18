@@ -5,7 +5,7 @@ import { SectionHeading } from '../ui/SectionHeading'
 
 export function Tools() {
   return (
-    <section className="py-12 sm:py-16 lg:py-20 border-b border-border-subtle">
+    <section id="tools" className="scroll-mt-24 py-12 sm:py-16 lg:py-20 border-b border-border-subtle">
       <Container className="space-y-10 sm:space-y-12">
         <SectionHeading
           eyebrow="ECOSYSTEM"

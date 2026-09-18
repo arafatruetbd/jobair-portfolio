@@ -40,7 +40,7 @@ The system SHALL apply a single primary sans-serif font family with a maximum of
 - **THEN** the eyebrow label is displayed in uppercase tracking with the accent token, and the heading text is rendered in dark navy semibold
 
 ### Requirement: Accessible Interactive Elements
-Interactive controls, including Button and Link primitives, MUST provide clear visual states across all interaction modes (`:hover`, `:active`, and `:focus-visible`). Primary buttons SHALL display with an accent green background (`#16845B`) and white text, transitioning to `#116C4A` on hover with a duration between 150ms and 250ms, and offering tactile visual feedback when pressed (`:active`). All interactive controls MUST exhibit a visible 2px focus ring with a 2px offset when focused via keyboard navigation (`:focus-visible`). Interactive touch targets on buttons, toggles, and disclosure links SHALL maintain a minimum target height of 44px to satisfy WCAG touch target criteria.
+Interactive controls, including Button and Link primitives, MUST provide clear visual states across all interaction modes (`:hover`, `:active`, and `:focus-visible`). Primary buttons SHALL display with an accent green background (`#16845B`) and white text, transitioning to `#116C4A` on hover with a duration between 150ms and 250ms, and offering tactile visual feedback when pressed (`:active`). All interactive controls MUST exhibit a visible 2px focus ring with a 2px offset when focused via keyboard navigation (`:focus-visible`). Interactive touch targets on buttons, toggles, and disclosure links SHALL maintain a minimum target height of 44px to satisfy WCAG touch target criteria. When the Button component renders as an anchor tag, it SHALL forward all additional HTML attributes, event handlers, and accessibility attributes (including `aria-label`) to the underlying anchor element.
 
 #### Scenario: Keyboard focus indication
 - **WHEN** a keyboard user navigates to an interactive button or link using the Tab key
@@ -58,6 +58,10 @@ Interactive controls, including Button and Link primitives, MUST provide clear v
 - **WHEN** rendered on touch devices or mobile viewports
 - **THEN** interactive buttons, mobile navigation controls, and disclosure toggles provide at least 44px of touch target height
 
+#### Scenario: Button anchor attribute and aria-label forwarding
+- **WHEN** a Button component renders as an anchor link (`asAnchor` with `href`) with accessibility attributes such as `aria-label`
+- **THEN** the rendered `<a>` element retains and exposes the forwarded `aria-label` and additional attributes in the DOM
+
 ### Requirement: Accessibility and Reduced Motion Baselines
 The application root layout SHALL include a skip-to-content link positioned before navigation landmarks that becomes visible on keyboard focus. The system SHALL structure sections using semantic HTML landmarks (`<header>`, `<main>`, `<footer>`, `<section>`). When the user agent indicates reduced motion preferences (`prefers-reduced-motion: reduce`), smooth scrolling, continuous animations (including status badge pulsing), and CSS transitions MUST be suppressed or reduced to immediate state changes.
 
@@ -72,3 +76,15 @@ The application root layout SHALL include a skip-to-content link positioned befo
 #### Scenario: Animation suppression under reduced motion
 - **WHEN** `prefers-reduced-motion: reduce` is active
 - **THEN** status indicator pulse animations and transition transformations are suppressed
+
+### Requirement: Production SEO and Social Metadata
+The system's root HTML document (`index.html`) SHALL define canonical link references, Open Graph social metadata (`og:title`, `og:description`, `og:url`, `og:image`, `og:type`), Twitter Card social metadata (`twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`), and SVG favicon references matching production deployment URLs and site configuration.
+
+#### Scenario: Canonical URL presence
+- **WHEN** the HTML document head is inspected
+- **THEN** a `<link rel="canonical">` element pointing to `https://arafatruetbd.github.io/jobair-portfolio/` is present
+
+#### Scenario: Open Graph and Twitter card metadata
+- **WHEN** a search crawler or social platform scrapes `index.html`
+- **THEN** valid Open Graph tags (`og:title`, `og:description`, `og:url`, `og:image`, `og:type`) and Twitter card tags (`twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`) are present with accurate portfolio content
+
