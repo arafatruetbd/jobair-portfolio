@@ -15,18 +15,18 @@ export const siteConfig = {
   ],
   qualities: [
     {
-      title: 'Reliable Operations',
-      description: 'Disciplined execution and consistent day-to-day workflow management.',
+      title: 'Disciplined Execution',
+      description: 'Daily SLA compliance, error-free order processing, and zero duplicate orders.',
       icon: 'ShieldCheck',
     },
     {
-      title: 'Data-Driven Results',
-      description: 'Accurate research, pricing analysis, and inventory monitoring.',
+      title: 'Pricing & Inventory Control',
+      description: 'Real-time price tracking, stock threshold alerts, and margin protection.',
       icon: 'TrendingUp',
     },
     {
-      title: 'Long-Term Collaboration',
-      description: 'Dedicated partner focused on stability and sustained operational growth.',
+      title: 'Dedicated Partnership',
+      description: 'Consistent remote collaboration, SOP alignment, and dependable reporting.',
       icon: 'Handshake',
     },
   ],

@@ -4,9 +4,9 @@ import { StatCard } from '../ui/StatCard'
 
 export function ExperienceStats() {
   return (
-    <section className="py-6 sm:py-8 lg:py-12 border-y border-border-subtle bg-surface/50">
+    <section className="py-8 sm:py-10 border-y border-border-subtle bg-surface/40">
       <Container>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {experienceStats.map((stat) => (
             <StatCard
               key={stat.label}

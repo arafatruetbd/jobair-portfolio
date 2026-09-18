@@ -48,7 +48,7 @@ export function Header() {
             <span className="text-lg font-bold tracking-tight text-text-primary group-hover:text-accent transition-colors duration-150">
               {siteConfig.name}
             </span>
-            <span className="hidden sm:inline-block border-l border-border-subtle pl-3 text-xs text-text-secondary">
+            <span className="hidden sm:inline-block border-l border-border-subtle pl-3 text-xs sm:text-sm text-text-secondary">
               {siteConfig.role}
             </span>
           </a>
@@ -64,7 +64,7 @@ export function Header() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors duration-150 relative py-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+                  className={`text-sm sm:text-base font-medium transition-colors duration-150 relative py-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
                     isActive
                       ? 'text-accent font-semibold'
                       : 'text-text-secondary hover:text-text-primary'
@@ -88,7 +88,7 @@ export function Header() {
               asAnchor
               href="#contact"
               variant="primary"
-              className="hidden sm:inline-flex text-xs px-4 py-2 min-h-[36px]"
+              className="hidden sm:inline-flex text-sm font-medium px-4 py-2 min-h-[40px]"
             >
               Contact Me
             </Button>

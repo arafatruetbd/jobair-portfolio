@@ -9,54 +9,65 @@ interface PortfolioCardProps {
 }
 
 export function PortfolioCard({ item, className = '' }: PortfolioCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false)
   const isFeatured = Boolean(item.featured)
+  // For featured card, default to expanded so key workflows are immediately visible
+  const [isExpanded, setIsExpanded] = useState(isFeatured)
 
   const cardBorderClass = isFeatured
-    ? 'border-accent/40 bg-surface shadow-sm ring-1 ring-accent/20 hover:border-accent hover:shadow-md'
-    : 'border-border-subtle bg-surface hover:border-accent/30 hover:shadow-sm'
+    ? 'border-2 border-accent/40 bg-surface ring-1 ring-accent/15 hover:border-accent'
+    : 'border border-border-subtle bg-surface hover:border-accent/40'
 
   return (
     <article
-      className={`group flex flex-col justify-between rounded-xl border p-6 transition-all duration-200 sm:p-8 ${cardBorderClass} ${className}`.trim()}
+      className={`group flex flex-col justify-between rounded-xl p-6 sm:p-8 transition-all duration-200 shadow-xs ${cardBorderClass} ${className}`.trim()}
     >
-      <div>
+      <div className="space-y-4">
         {/* Card Header: Category & Priority Status */}
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-accent">
             {item.category}
           </span>
           {isFeatured && (
-            <span className="inline-flex items-center gap-1 rounded-full border border-accent/30 bg-accent-soft px-2.5 py-0.5 text-xs font-medium text-accent">
-              <Star className="h-3 w-3 fill-accent text-accent" aria-hidden="true" />
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent-soft px-3 py-1 text-xs sm:text-sm font-semibold text-accent">
+              <Star className="h-3.5 w-3.5 fill-accent text-accent" aria-hidden="true" />
               <span>Primary Specialization</span>
             </span>
           )}
         </div>
 
         {/* Title & Subtitle */}
-        <h3 className="mt-3 text-xl font-bold tracking-tight text-text-primary sm:text-2xl">
-          {item.title}
-        </h3>
-        <p className="mt-1 text-sm font-medium text-text-secondary">{item.subtitle}</p>
+        <div>
+          <h3
+            className={`font-bold tracking-tight text-text-primary ${
+              isFeatured ? 'text-2xl sm:text-3xl lg:text-4xl' : 'text-xl sm:text-2xl'
+            }`}
+          >
+            {item.title}
+          </h3>
+          <p className="mt-1.5 text-sm sm:text-base font-medium text-text-secondary">
+            {item.subtitle}
+          </p>
+        </div>
 
-        {/* Concise Card Summary */}
-        <p className="mt-4 text-sm leading-relaxed text-text-secondary">{item.summary}</p>
+        {/* Card Summary */}
+        <p className="text-sm sm:text-base leading-relaxed text-text-secondary">
+          {item.summary}
+        </p>
 
-        {/* Expandable Disclosure Toggle Button */}
-        <div className="mt-2">
+        {/* Interactive Disclosure Toggle Button */}
+        <div className="pt-1">
           <button
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
             aria-expanded={isExpanded}
             aria-controls={`responsibilities-${item.id}`}
-            className="inline-flex items-center gap-1.5 min-h-[44px] py-2 text-xs font-semibold text-accent hover:text-accent-hover active:text-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent transition-colors motion-reduce:transition-none cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-border-subtle bg-bg-primary text-xs sm:text-sm font-semibold text-text-primary hover:border-accent hover:text-accent active:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent min-h-[44px] cursor-pointer transition-colors"
           >
-            <span>{isExpanded ? 'Hide Details' : 'View Details'}</span>
+            <span>{isExpanded ? 'Hide Key Responsibilities' : 'View Key Responsibilities'}</span>
             {isExpanded ? (
-              <ChevronUp className="h-3.5 w-3.5" aria-hidden="true" />
+              <ChevronUp className="h-4 w-4 text-accent" aria-hidden="true" />
             ) : (
-              <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
+              <ChevronDown className="h-4 w-4 text-accent" aria-hidden="true" />
             )}
           </button>
         </div>
@@ -65,16 +76,22 @@ export function PortfolioCard({ item, className = '' }: PortfolioCardProps) {
         {isExpanded && (
           <div
             id={`responsibilities-${item.id}`}
-            className="mt-4 pt-4 border-t border-border-subtle"
+            className="pt-4 border-t border-border-subtle space-y-3"
           >
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-text-primary">
-              Key Responsibilities
+            <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-text-primary">
+              Key Responsibilities &amp; Workflows
             </h4>
-            <ul className="mt-3 space-y-2">
+            <ul
+              className={
+                isFeatured
+                  ? 'grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2.5'
+                  : 'space-y-2.5'
+              }
+            >
               {item.responsibilities.map((resp, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs text-text-secondary">
+                <li key={idx} className="flex items-start gap-2.5 text-sm leading-relaxed text-text-secondary">
                   <CheckCircle2
-                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent"
+                    className="mt-1 h-4 w-4 shrink-0 text-accent"
                     aria-hidden="true"
                   />
                   <span>{resp}</span>
@@ -86,11 +103,11 @@ export function PortfolioCard({ item, className = '' }: PortfolioCardProps) {
       </div>
 
       {/* Associated Platforms & Systems */}
-      <div className="mt-6 border-t border-border-subtle pt-6">
-        <h4 className="text-xs font-semibold uppercase tracking-wider text-text-primary mb-3">
-          Platforms &amp; Systems
+      <div className="mt-8 border-t border-border-subtle pt-6">
+        <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-text-primary mb-3">
+          Platforms &amp; Systems Handled
         </h4>
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-2">
           {item.platforms.map((platform) => (
             <PlatformBadge
               key={platform}
@@ -103,3 +120,4 @@ export function PortfolioCard({ item, className = '' }: PortfolioCardProps) {
     </article>
   )
 }
+

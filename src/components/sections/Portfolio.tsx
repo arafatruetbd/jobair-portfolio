@@ -8,8 +8,8 @@ export function Portfolio() {
   const regularItems = portfolioItems.filter((item) => !item.featured)
 
   return (
-    <section id="portfolio" className="scroll-mt-24 py-16 sm:py-20 lg:py-24">
-      <Container className="space-y-12">
+    <section id="portfolio" className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
+      <Container className="space-y-10 sm:space-y-12">
         <SectionHeading
           eyebrow="MY WORK"
           title="Selected Portfolio"
@@ -25,9 +25,13 @@ export function Portfolio() {
           )}
 
           {/* Live Ticketing Operations Focus Cards */}
-          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {regularItems.map((item) => (
-              <PortfolioCard key={item.id} item={item} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {regularItems.map((item, index) => (
+              <PortfolioCard
+                key={item.id}
+                item={item}
+                className={index === 2 ? 'md:col-span-2 lg:col-span-1' : ''}
+              />
             ))}
           </div>
         </div>
@@ -35,3 +39,4 @@ export function Portfolio() {
     </section>
   )
 }
+

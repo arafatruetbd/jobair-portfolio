@@ -12,9 +12,9 @@ export const experienceStats: (ExperienceStat & { description?: string })[] = [
     description: 'Multi-channel e-commerce marketplaces and major ticketing exchanges',
   },
   {
-    value: '1000+',
+    value: 'Multi-Channel',
     label: 'Orders & Tickets Handled',
-    description: 'Accurate order fulfillment, inventory checks, and listing updates',
+    description: 'Accurate order fulfillment, inventory validation, and status tracking',
   },
   {
     value: 'Reliable',

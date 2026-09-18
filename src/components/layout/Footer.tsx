@@ -11,16 +11,16 @@ export function Footer() {
           {/* Left: Brand info */}
           <div className="space-y-1">
             <h3 className="text-base font-bold text-text-primary">{siteConfig.name}</h3>
-            <p className="text-xs text-text-secondary">{siteConfig.role}</p>
+            <p className="text-sm text-text-secondary">{siteConfig.role}</p>
           </div>
 
           {/* Center: Quick navigation */}
-          <nav className="flex flex-wrap gap-6 text-xs font-medium" aria-label="Footer navigation">
+          <nav className="flex flex-wrap gap-6 text-sm font-medium" aria-label="Footer navigation">
             {siteConfig.navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-text-secondary hover:text-text-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                className="text-text-secondary hover:text-text-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent py-1"
               >
                 {link.label}
               </a>
@@ -28,7 +28,7 @@ export function Footer() {
           </nav>
 
           {/* Right: Contact & profile links */}
-          <div className="flex flex-wrap gap-6 text-xs font-medium">
+          <div className="flex flex-wrap gap-6 text-sm font-medium">
             <a
               href={`mailto:${siteConfig.contact.email}`}
               aria-label={`Send an Email to ${siteConfig.name}`}
@@ -58,9 +58,9 @@ export function Footer() {
         </div>
 
         {/* Bottom copyright & disclaimer */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-t border-border-subtle pt-6 text-xs text-text-secondary gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-t border-border-subtle pt-6 text-xs sm:text-sm text-text-secondary gap-2">
           <p>&copy; {currentYear} {siteConfig.name}. All rights reserved.</p>
-          <p className="text-xs">
+          <p>
             Acumatica, AXS, Ticketmaster, and other trademarks belong to their respective owners.
           </p>
         </div>
