@@ -6,6 +6,8 @@ export function Button({
   className = '',
   asAnchor = false,
   href,
+  target,
+  rel,
   type = 'button',
   ...props
 }: ButtonProps) {
@@ -21,7 +23,7 @@ export function Button({
 
   if (asAnchor && href) {
     return (
-      <a href={href} className={combinedClasses}>
+      <a href={href} target={target} rel={rel} className={combinedClasses}>
         {children}
       </a>
     )

@@ -14,6 +14,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   asAnchor?: boolean
   href?: string
+  target?: string
+  rel?: string
 }
 
 export interface SectionHeadingProps {
