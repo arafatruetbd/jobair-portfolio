@@ -44,13 +44,13 @@ export function PortfolioCard({ item, className = '' }: PortfolioCardProps) {
         <p className="mt-4 text-sm leading-relaxed text-text-secondary">{item.summary}</p>
 
         {/* Expandable Disclosure Toggle Button */}
-        <div className="mt-4">
+        <div className="mt-2">
           <button
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
             aria-expanded={isExpanded}
             aria-controls={`responsibilities-${item.id}`}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:text-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent py-1 transition-colors"
+            className="inline-flex items-center gap-1.5 min-h-[44px] py-2 text-xs font-semibold text-accent hover:text-accent-hover active:text-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent transition-colors motion-reduce:transition-none cursor-pointer"
           >
             <span>{isExpanded ? 'Hide Details' : 'View Details'}</span>
             {isExpanded ? (

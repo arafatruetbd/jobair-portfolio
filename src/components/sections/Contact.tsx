@@ -22,6 +22,7 @@ export function Contact() {
               href={`mailto:${siteConfig.contact.email}`}
               variant="primary"
               className="gap-2"
+              aria-label="Send an Email to Jobair"
             >
               <Mail className="h-4 w-4" aria-hidden="true" />
               <span>Send an Email</span>
@@ -33,6 +34,7 @@ export function Contact() {
               rel="noopener noreferrer"
               variant="outline"
               className="gap-2"
+              aria-label="Jobair on LinkedIn (opens in new tab)"
             >
               <span>LinkedIn Profile</span>
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -44,6 +46,7 @@ export function Contact() {
               rel="noopener noreferrer"
               variant="outline"
               className="gap-2"
+              aria-label="Jobair on Upwork (opens in new tab)"
             >
               <span>Upwork Profile</span>
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

@@ -31,7 +31,8 @@ export function Footer() {
           <div className="flex flex-wrap gap-6 text-xs font-medium">
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="text-text-secondary hover:text-text-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              aria-label="Send an Email to Jobair"
+              className="text-text-secondary hover:text-text-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent min-h-[44px] inline-flex items-center"
             >
               Email
             </a>
@@ -39,7 +40,8 @@ export function Footer() {
               href={siteConfig.contact.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-secondary hover:text-text-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              aria-label="Jobair on LinkedIn (opens in new tab)"
+              className="text-text-secondary hover:text-text-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent min-h-[44px] inline-flex items-center"
             >
               LinkedIn
             </a>
@@ -47,7 +49,8 @@ export function Footer() {
               href={siteConfig.contact.upworkUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-secondary hover:text-text-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              aria-label="Jobair on Upwork (opens in new tab)"
+              className="text-text-secondary hover:text-text-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent min-h-[44px] inline-flex items-center"
             >
               Upwork
             </a>

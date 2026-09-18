@@ -1,9 +1,12 @@
 import { ArrowRight, Handshake, ShieldCheck, TrendingUp } from 'lucide-react'
+import { useState } from 'react'
 import { siteConfig } from '../../data/site'
 import { Container } from '../layout/Container'
 import { Button } from '../ui/Button'
 
 export function Hero() {
+  const [imgError, setImgError] = useState(false)
+
   return (
     <section id="home" className="scroll-mt-24 py-12 sm:py-16 lg:py-24">
       <Container>
@@ -11,14 +14,35 @@ export function Hero() {
           {/* Left Column: Portrait & Availability */}
           <div className="flex flex-col items-center text-center lg:col-span-3 lg:items-start lg:text-left">
             <div className="relative">
-              <div className="relative flex h-40 w-40 items-center justify-center rounded-2xl border border-accent/20 bg-accent-soft text-accent shadow-sm sm:h-48 sm:w-48">
-                <span className="text-4xl font-bold tracking-tight text-accent">J</span>
+              <div className="relative flex h-40 w-40 items-center justify-center rounded-2xl border border-accent/20 bg-accent-soft text-accent shadow-sm sm:h-48 sm:w-48 overflow-hidden">
+                {!imgError ? (
+                  <img
+                    src="/images/profile/profile.png"
+                    alt="Jobair - Acumatica ERP & Ticket Operations Specialist"
+                    width={192}
+                    height={192}
+                    fetchPriority="high"
+                    className="h-full w-full object-cover"
+                    onError={() => setImgError(true)}
+                  />
+                ) : (
+                  <div
+                    role="img"
+                    aria-label="Portrait avatar placeholder for Jobair"
+                    className="flex h-full w-full items-center justify-center"
+                  >
+                    <span className="text-4xl font-bold tracking-tight text-accent">J</span>
+                  </div>
+                )}
               </div>
             </div>
 
             {/* Status Badge */}
             <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent-soft px-3 py-1 text-xs font-medium text-accent">
-              <span className="h-2 w-2 rounded-full bg-accent animate-pulse" aria-hidden="true" />
+              <span
+                className="h-2 w-2 rounded-full bg-accent animate-pulse motion-reduce:animate-none"
+                aria-hidden="true"
+              />
               <span>{siteConfig.status}</span>
             </div>
           </div>
@@ -29,7 +53,7 @@ export function Hero() {
               <p className="text-xs font-semibold uppercase tracking-wider text-accent">
                 HELLO, I'M
               </p>
-              <h1 className="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
+              <h1 className="text-3xl font-bold tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
                 {siteConfig.name}
               </h1>
               <p className="text-lg font-semibold text-text-primary sm:text-xl">
