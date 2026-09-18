@@ -1,0 +1,61 @@
+schema: spec-driven
+
+context: |
+  Product: Jobair professional portfolio website.
+
+  Authoritative product requirements are defined in PRD.md.
+  Authoritative technical architecture is defined in architecture.md.
+
+  Tech stack:
+  - React
+  - TypeScript
+  - Vite
+  - Tailwind CSS
+  - Lucide React
+  - GitHub Pages
+  - GitHub Actions
+
+  Product priorities:
+  - Minimalist professional design
+  - Acumatica ERP is the primary specialization
+  - Ticket Operations is the secondary specialization
+  - Responsive desktop/tablet/mobile experience
+  - Strong accessibility and performance
+  - Static-first architecture
+  - No backend for MVP
+
+  Do not invent professional experience, metrics, employers,
+  contact information, testimonials, or business claims.
+
+rules:
+  proposal:
+    - Reference PRD.md, design.png and architecture.md before proposing changes
+    - Explicitly state non-goals
+    - Avoid functionality outside the MVP unless required
+
+  specs:
+    - Requirements must be testable
+    - Include desktop, tablet, and mobile behavior where relevant
+    - Include accessibility requirements for interactive UI
+
+  design:
+    - Follow architecture.md and design.png unless a deviation is explicitly justified
+    - Prefer simple reusable components
+    - Avoid unnecessary dependencies
+
+  tasks:
+    - Break implementation into small verifiable tasks
+    - Include lint and production build verification
+    - Do not mark a task complete until its implementation is verified
+
+operations:
+  apply:
+    guidance:
+      - Read PRD.md, design.png and architecture.md before implementation
+      - Implement only approved tasks
+      - Keep the UI minimalist and professional
+      - Run lint and build before considering implementation complete
+
+  archive:
+    guidance:
+      - Confirm implementation and specifications match before archiving
